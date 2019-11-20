@@ -14,12 +14,12 @@ public class Category {
     private int id;
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min=3, max=15)
     private String name;
 
-    @OneToMany //one category to many cheeses
+    @OneToMany // one category, many cheeses
     @JoinColumn(name = "category_id")
-    private List<Cheese> cheeses = new ArrayList();
+    private List<Cheese> cheeses = new ArrayList<>();
 
     // constructor
     public Category() {}
@@ -27,6 +27,9 @@ public class Category {
     public Category(String name) {
         this.name = name;
     }
+
+
+
 
     public String getName() {
         return name;
@@ -38,8 +41,5 @@ public class Category {
 
     public int getId() {
         return id;
-
     }
 }
-
-

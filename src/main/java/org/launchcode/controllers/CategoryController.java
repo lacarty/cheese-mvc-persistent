@@ -21,12 +21,12 @@ public class CategoryController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
+
         model.addAttribute("categories", categoryDao.findAll());
         model.addAttribute("title", "Categories");
 
         return "category/index";
     }
-
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAdd(Model model) {
@@ -35,8 +35,7 @@ public class CategoryController {
         model.addAttribute("title", "Add Category");
 
         return "category/add";
-
-}
+    }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAdd(Model model, @ModelAttribute @Valid Category category,
@@ -50,5 +49,4 @@ public class CategoryController {
         categoryDao.save(category);
         return "redirect:";
     }
-
 }
